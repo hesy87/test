@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.story {
+    position: relative;
+    background: #f6f6ef;
+    min-height: calc(100vh - 120px);
+}
+
+.title {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.Story_link {
+    color: #828282;
+    font-size: 13px;
+    word-break: break-all;
+}
+
+.subtitle >p {
+    color: #696969;
+    font-size: 10px;
+}
