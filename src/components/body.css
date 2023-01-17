@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+.box:hover {
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all 0.2s ease-in-out;
+    scale: 1.02;
+}
+
 .story {
     position: relative;
     background: #f6f6ef;

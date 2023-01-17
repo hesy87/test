@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
+import SearchAppBar from './searchBar'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,7 +21,6 @@ const Body = () => {
       "https://hn.algolia.com/api/v1/search?tags=front_page"
     );
     const data = await respose.json();
-    console.log(data.hits);
     const trasformData = data.hits.map((items) => {
       return {
         id: items.story_id,
@@ -41,7 +41,6 @@ const Body = () => {
     });
     setData(trasformData);
     const timestamp = Date.now();
-    console.log(timestamp);
   }
 
   useEffect(() => {
@@ -50,14 +49,15 @@ const Body = () => {
 
   return (
     <>
+    <SearchAppBar products={Data}/>
       <div className="container ">
         {Data.map((items) => (
           <>
-            <Box sx={{ width: "100%" }}>
+            <Box className="box mt-3" sx={{ width: "100%" }}>
               <Stack spacing={2}>
-                <Item>
-                  <div className="d-flex">
-                    <p className="title">{items.title}</p>
+                <Item >
+                  <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center">
+                    <p className="title fs-5">{items.title}</p>
                     <p className="title ms-2 Story_link">({items.url})</p>
                   </div>
                   <div className="d-flex subtitle">
